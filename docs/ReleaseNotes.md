@@ -8,10 +8,11 @@ Current package versions:
 
 ## Unreleased
 - TLS certificate/`TrustIssuer`: Check EKU in X509 chain checks when validating cerificates ([#2670 by NickCraver](https://github.com/StackExchange/StackExchange.Redis/pull/2670))
+- Fix [#2679](https://github.com/StackExchange/StackExchange.Redis/issues/2679) - blocking call in long-running connects ([#2680 by mgravell](https://github.com/StackExchange/StackExchange.Redis/pull/2680))
 
 ## 2.7.33
 
-- **Potentiallty Breaking**: Fix `CheckTrustedIssuer` certificate validation for broken chain scenarios ([#2665 by NickCraver](https://github.com/StackExchange/StackExchange.Redis/pull/2665))
+- **Potentially Breaking**: Fix `CheckTrustedIssuer` certificate validation for broken chain scenarios ([#2665 by NickCraver](https://github.com/StackExchange/StackExchange.Redis/pull/2665))
   - Users inadvertently trusting a remote cert with a broken chain could not be failing custom validation before this change. This is only in play if you are using `ConfigurationOptions.TrustIssuer` at all.
 - Add new `LoggingTunnel` API; see https://stackexchange.github.io/StackExchange.Redis/Logging ([#2660 by mgravell](https://github.com/StackExchange/StackExchange.Redis/pull/2660))
 - Fix [#2664](https://github.com/StackExchange/StackExchange.Redis/issues/2664): Move ProcessBacklog to fully sync to prevent thread pool hopping and blocking on awaits ([#2667 by NickCraver](https://github.com/StackExchange/StackExchange.Redis/pull/2667))
